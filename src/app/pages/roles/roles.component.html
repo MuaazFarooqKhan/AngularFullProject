@@ -1,0 +1,98 @@
+<div @open class="col-md-12">
+  <h3 style="text-align: center;">Add Role</h3>
+  <form #f (ngSubmit)="submit(form.value)" [formGroup]="form">
+    <div class="row">
+      <mat-form-field>
+        <input matInput formControlName="role_name" placeholder="Role Name">
+      </mat-form-field>
+    </div> 
+    <div *ngIf="role_name.invalid && role_name.touched">
+      <div *ngIf="role_name.errors.required" class="alert alert-danger">Name is required</div>
+      <div *ngIf="role_name.errors.minlength" class="alert alert-danger">Name should be minimum 5 characters</div>
+      <div *ngIf="role_name.errors.pattern" class="alert alert-danger">Name should only have alphabets and spaces</div>
+    </div>
+    <div class="row">
+      <h6>Set Permissions</h6>
+    </div>
+    <div class="row">
+      <mat-card>
+        <mat-grid-list cols="2" rowHeight="9:1">
+          <mat-grid-tile style="text-align: left;">
+            <p> Dashboard</p>
+          </mat-grid-tile>
+          <mat-grid-tile style="text-align: right;">
+            <mat-slide-toggle formControlName="Dashboard" class="switch-ml">Off/On</mat-slide-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+
+    <div class="row">
+      <mat-card>
+        <mat-grid-list cols="2" rowHeight="9:1">
+          <mat-grid-tile style="text-align: left;">
+            <p> Inventory</p>
+          </mat-grid-tile>
+          <mat-grid-tile style="text-align: right;">
+            <mat-slide-toggle formControlName="Inventory" class="switch-ml">Off/On</mat-slide-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+
+    <div class="row">
+      <mat-card>
+        <mat-grid-list cols="2" rowHeight="9:1">
+          <mat-grid-tile style="text-align: left;">
+            <p>POS</p>
+          </mat-grid-tile>
+          <mat-grid-tile style="text-align: right;">
+            <mat-slide-toggle formControlName="POS" class="switch-ml">Off/On</mat-slide-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+
+    <div class="row">
+      <mat-card>
+        <mat-grid-list cols="2" rowHeight="9:1">
+          <mat-grid-tile style="text-align: left;">
+            <p>Broadcast</p>
+          </mat-grid-tile>
+          <mat-grid-tile style="text-align: right;">
+            <mat-slide-toggle formControlName="Broadcast" class="switch-ml">Off/On</mat-slide-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+
+    <div class="row">
+      <mat-card>
+        <mat-grid-list cols="2" rowHeight="9:1">
+          <mat-grid-tile style="text-align: left;">
+            <p>Search Entire Plaza</p>
+          </mat-grid-tile>
+          <mat-grid-tile style="text-align: right;">
+            <mat-slide-toggle formControlName="search_Plaza" class="switch-ml">Off/On</mat-slide-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+
+    <div class="row">
+      <mat-card>
+        <mat-grid-list cols="2" rowHeight="9:1">
+          <mat-grid-tile style="text-align: left;">
+            <p>Settings</p>
+          </mat-grid-tile>
+          <mat-grid-tile style="text-align: right;">
+            <mat-slide-toggle formControlName="Settings" class="switch-ml">Off/On</mat-slide-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+    <div class="offset-5">
+      <button [disabled]="!form.valid" class="btn btn-primary btn-round" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

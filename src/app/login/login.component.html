@@ -1,0 +1,108 @@
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader" style="display: none;">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+  </svg>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper">
+  <div class="login-register">
+    <div class="login-box card">
+      <div class="card-body">
+        <div *ngIf="show">
+          <form class="form-horizontal form-material" id="loginform" [formGroup]="loginForm"
+            (ngSubmit)="GetData(loginForm)">
+            <h3 class="p-2 rounded-title mb-3">Sign In</h3>
+            <!-- <div class="form-group ">
+                                <div class="col-xs-12">
+                                    <input class="form-control" type="text" formControlName="name" required="" placeholder="Username" style="width:100%"> </div>
+                            </div> -->
+            <div class="form-group ">
+              <div class="col-xs-12">
+                <input class="form-control" id="mail" type="email" formControlName="email" required=""
+                  placeholder="Email" style="width:100%"> </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <input class="form-control" id="pas" type="password" formControlName="password" required=""
+                  placeholder="Password" style="width:100%"> </div>
+            </div>
+
+            <div class="form-group">
+              <div class="d-flex no-block align-items-center">
+                <div class="checkbox checkbox-primary pt-0">
+                  <input id="checkbox-signup" type="checkbox" formControlName="check">
+                  <label for="checkbox-signup"> Remember me </label>
+                </div>
+                <div class="ml-auto">
+                  <a (click)="onClick()" [hidden]="false" id="to-recover" class="text-muted">
+                    <i class="fa fa-lock mr-1"></i> Forgot Password</a>
+                </div>
+              </div>
+            </div>
+            <div class="form-group text-center mt-3">
+              <div class="col-xs-12">
+                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit"
+                  >Log In</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 mt-2 text-center">
+                <div class="social">
+                  <button class="btn btn-facebook text-white" data-toggle="tooltip" title="" data-original-title="Login with Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                  <button class="btn btn-googleplus text-white" data-toggle="tooltip" title=""
+                    data-original-title="Login with Google" aria-describedby="tooltip204953" style="margin-left:2%;">
+                    <i class="fab fa-google"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-0">
+              <div class="col-sm-12 text-center">
+                Don't have an account?
+                <a [routerLink]="['/signup']" class="text-info ml-1">
+                  <b>Sign Up</b>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="!show">
+          <form [formGroup]="EmailForm" (ngSubmit)="EmailData(EmailForm)">
+            <div class="form-group">
+              <div class="col-xs-12">
+                <h3>Recover Password</h3>
+                <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="col-xs-12">
+                <input class="f" type="text" formControlName="Email" required="" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group text-center mt-3">
+              <div class="col-xs-12">
+                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light"
+                  type="submit">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<div class="tooltip fade bs-tooltip-top" role="tooltip" id="tooltip204953" x-placement="top"
+  style="position: absolute; transform: translate3d(383px, 389px, 0px); top: 0px; left: 0px; will-change: transform;">
+  <div class="arrow" style="left: 56px;">
+
+  </div>
+  <div class="tooltip-inner">Login with Google</div>
+</div>

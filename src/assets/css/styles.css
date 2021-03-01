@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+.sidebar[data-active-color=danger] .nav li.active > a, .sidebar[data-active-color=danger] .nav li.active > a i, .sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse], .sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse] i, .sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse] ~ div > ul > li.active .sidebar-mini-icon, .sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse] ~ div > ul > li.active > a, .off-canvas-sidebar[data-active-color=danger] .nav li.active > a, .off-canvas-sidebar[data-active-color=danger] .nav li.active > a i, .off-canvas-sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse], .off-canvas-sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse] i, .off-canvas-sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse] ~ div > ul > li.active .sidebar-mini-icon, .off-canvas-sidebar[data-active-color=danger] .nav li.active > a[data-toggle=collapse] ~ div > ul > li.active > a {
+    color: blueviolet !important;
+}
+
+.center-element {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.btn-submit {
+    background-color: #104596 !important;
+    color: white !important;
+    margin-top: 35px;
+}
+
+.form-bg {
+    background-color: #fff;
+    padding: 50px
+}
+
+.no-decor:hover {
+    text-decoration: none !important;;
+}
+
+.no-decor {
+    text-decoration:none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mr-35px {
+    margin-right: 35px;
+}
+
+.clr-both {
+    clear: both;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.width-50p {
+    width: 50%;
+}
+
+.mt-35px {
+    margin-top: 35px;
+}
+
+.clr-black {
+    color: black !important;
+}
+.mat-select-value {
+    color: black !important;
+}
+
+.width-25p {
+    width: 40%;
+}
+
+.width-100p {
+    width: 100%;
+}
+.mat-input-element:disabled {
+    color: black !important;
+}

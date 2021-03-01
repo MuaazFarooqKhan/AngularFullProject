@@ -1,0 +1,97 @@
+<!-- Name, address, number, cnic -->
+<div class="col-md-8">
+  <div class="pt-2">
+    <div class="row">
+      <div class="col-md-4 pl-5">
+        <h5 class="card-title">Add Vendor</h5>
+      </div>
+      <div class="offset-5">
+        <button routerLink="/admin/view-vendor" class="btn btn-round btn-primary">View Vendors</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="addvendor" (ngSubmit)="addVendor(addvendor)"> 
+        <div class="row">
+          <div class="col-md-7 pr-1">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Name">
+              <div *ngIf="addvendor.controls['name'].touched && !addvendor.controls['name'].valid" class="alert alert-danger">  
+                <span *ngIf="addvendor.controls['name'].hasError('required') ">  
+                    First name is required  
+                    </span>  
+                    <span *ngIf="addvendor.controls['name'].hasError('minlength') ">  
+                     Min length is 3  
+                    </span>  
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 pr-3">
+            <div class="form-group">
+              <label>Address</label>
+              <textarea class="form-control textarea" formControlName="address" placeholder="Address"></textarea>
+              <div *ngIf="addvendor.controls['address'].touched && !addvendor.controls['address'].valid" class="alert alert-danger">  
+                <span *ngIf="addvendor.controls['address'].hasError('required') ">  
+                    Address name is required  
+                    </span>  
+                    <span *ngIf="addvendor.controls['address'].hasError('minlength') ">  
+                     Min length is 5  
+                    </span>  
+            </div>
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>CNIC</label>
+              <input type="text" class="form-control" formControlName="cnic" placeholder="CNIC">
+              <div *ngIf="addvendor.controls['cnic'].touched && !addvendor.controls['cnic'].valid" class="alert alert-danger">  
+                <span *ngIf="addvendor.controls['cnic'].hasError('required') ">  
+                    Cnic is required  
+                    </span>
+                    <span *ngIf="addvendor.controls['cnic'].hasError('pattern') ">  
+                      Must be a number 
+                     </span>  
+                    <span *ngIf="addvendor.controls['cnic'].hasError('minlength') ">  
+                     Min length is 13  
+                    </span>
+                    <span *ngIf="addvendor.controls['cnic'].hasError('maxlength') ">  
+                      Max length is 13  
+                     </span>  
+            </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Number</label>
+              <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number">
+              <div *ngIf="addvendor.controls['phone'].touched && !addvendor.controls['phone'].valid" class="alert alert-danger">  
+                <span *ngIf="addvendor.controls['phone'].hasError('required') ">  
+                    Phone is required  
+                    </span>
+                    <span *ngIf="addvendor.controls['phone'].hasError('pattern') ">  
+                      Phone should be of the form 03xxxxxxxxx 
+                     </span>   
+                    <!-- <span *ngIf="addvendor.controls['phone'].hasError('minlength') ">  
+                     Min length is 7  
+                    </span> -->
+                    <span *ngIf="addvendor.controls['phone'].hasError('maxlength') ">  
+                      Max length is 11  
+                     </span>  
+
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round" [disabled]="!addvendor.valid">Add Vendor</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

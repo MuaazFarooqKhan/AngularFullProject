@@ -1,0 +1,44 @@
+mat-grid-tile {
+  background: lightblue;
+}
+
+table {
+  width: 100%;
+}
+
+// tr:hover {
+//     background-color: rgb(182, 243, 238) !important;
+// }
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #002366 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #8f8eb9 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #002366 !important;
+}
+.fas {
+  cursor: pointer;
+}
+
+th.mat-header-cell {
+  text-align: center !important;
+}
+
+th.mat-cell {
+  text-align: center !important;
+}
+
+tr.mat-row {
+  text-align: center !important;
+}
+
+.customModal{
+  width: 200px !important;
+}

@@ -1,0 +1,43 @@
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color:#002366 !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #8F8EB9 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #002366 !important;
+}
+
+
+.header-color {
+  background-color: #f4f3ef;
+}
+
+i {
+  font-family:'FontAwesome'!important;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+.del-icon {
+  font-size: 19px;
+  margin-left: 10px;
+}
+.add-icon {
+  font-size: 15px;
+  margin-right: 20px;
+}
+.mt-20px {
+  margin-top: 20px;
+}

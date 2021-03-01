@@ -1,0 +1,40 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  // .mat-form-field-label{
+  //   color: black !important;
+  // }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color:#002366 !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #8F8EB9 !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #002366 !important;
+  }
+
+  .centralize-row {
+    margin: 0 auto;
+  }
+  .card-height-set {
+    margin: 45px 0 50px 0;
+  }
+  .card-stats .card-body .numbers {
+    font-size: 1.5rem !important;
+  }
+  .card:hover {
+    background-color: #ddd;
+  }

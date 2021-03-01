@@ -1,0 +1,178 @@
+<div @open class="col-md-12">
+  <div class="pt-2 col-md-12">
+    <div class="row">
+      <h5 class="card-title">Add Sale</h5>
+      <div class="offset-9">
+        <button routerLink="/admin/view-sales" class="btn btn-round btn-primary">View Sales</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <span>Product Information</span>
+      <form class="pt-2" #f [formGroup]="userForm" (ngSubmit)="submit(userForm.value)">
+        <div *ngFor="let mobile of getMobileFormControls(); let i=index">
+          <div class="row pt-2 pl-3">
+            <div class="col-md-4 form-group offset-2">
+              <label>Brand Name</label>
+              <select class="form-control" #brandd (change)="setBrand($event)"  [formControl]="mobile.get('brand')">
+                <option disabled selected>Select Brand</option>
+                <option class="form-control" *ngFor="let phone of brands" [value]="phone.brand">{{phone.brand}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-4 form-group">
+              <label>Model</label>
+              <div *ngFor="let phone of brands">
+                <div *ngIf="(phone.brand==selectedbrand)">
+                    <select class="form-control" (change)="setModel($event)" [formControl]="mobile.get('model')">
+                      <option disabled selected>Select Model</option>
+                      <option class="form-control" *ngFor="let model of phone.model" [value]="model.name">{{model.name}}
+                      </option>
+                    </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="pt-4 pl-4">
+              <span (click)="addMobile()"><i class="fas fa-plus add-icon"></i></span>
+            </div>
+            <ng-template ngFor let-phone [ngForOf]="brands">
+              <ng-template ngFor let-model [ngForOf]="phone.model">
+                <ng-container *ngIf="model.name==selectedmodel">
+                    <div class="col-md-3 form-group">
+                      <label>Color</label>
+                      <select class="form-control" [formControl]="mobile.get('color')">
+                        <option disabled selected>Select Color</option>
+                        <option class="form-control" *ngFor="let invent of model.phone" [value]="invent.color">{{invent.color}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                      <label>IMEI</label>
+                      <select class="form-control" [formControl]="mobile.get('IMEI')">
+                        <option disabled selected>Select IMEI</option>
+                        <option class="form-control" *ngFor="let invent of model.phone" [value]="invent.IMEI">{{invent.IMEI}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-3 form-group">
+                      <label>Price</label>
+                      <select class="form-control" [formControl]="mobile.get('price')">
+                        <option disabled selected>Select Price</option>
+                        <option class="form-control" *ngFor="let invent of model.phone" [value]="invent.price">{{invent.price}}
+                        </option>
+                      </select>
+                    </div>
+                  </ng-container>
+                </ng-template>
+            </ng-template>
+            <div class="pt-4">
+              <span (click)="removeMobile(i)"><i class="fas fa-trash del-icon"></i></span>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="pt-2">
+          <span>Customer Information</span>
+          <div class="row pt-4">
+            <div class="col-md-4 form-group">
+              <label>Customer Name</label>
+              <input type="text" class="form-control" placeholder="Name" formControlName="cust_name">
+              <div *ngIf="userForm.controls['cust_name'].touched && !userForm.controls['cust_name'].valid" class="alert alert-danger">  
+                <span *ngIf="userForm.controls['cust_name'].hasError('required') ">  
+                    Customer name is required  
+                    </span>  
+                    <span *ngIf="userForm.controls['cust_name'].hasError('minlength') ">  
+                     Min length is 3  
+                    </span>
+                    <span *ngIf="userForm.controls['cust_name'].hasError('maxlength') ">  
+                      Min length is 50  
+                     </span>  
+            </div>
+            </div>
+            <div class="col-md-4 form-group">
+              <label>Customer CNIC</label>
+              <input type="text" class="form-control" placeholder="CNIC" formControlName="cust_cnic">
+              <div *ngIf="userForm.controls['cust_cnic'].touched && !userForm.controls['cust_cnic'].valid" class="alert alert-danger">  
+                <span *ngIf="userForm.controls['cust_cnic'].hasError('required') ">  
+                    Customer Cnic is required  
+                    </span>
+                    <span *ngIf="userForm.controls['cust_cnic'].hasError('pattern') ">  
+                      Alphabet is not allowed  
+                     </span>    
+                    <span *ngIf="userForm.controls['cust_cnic'].hasError('minlength') ">  
+                     Min length is 13  
+                    </span>
+                    <span *ngIf="userForm.controls['cust_cnic'].hasError('maxlength') ">  
+                      Max length is 13  
+                     </span>  
+            </div>
+            </div>
+            <div class="col-md-4 form-group">
+              <label>Customer Number</label>
+              <input type="text" class="form-control" placeholder="Phone Number" formControlName="cust_number">
+              <div *ngIf="userForm.controls['cust_number'].touched && !userForm.controls['cust_number'].valid" class="alert alert-danger">  
+                <span *ngIf="userForm.controls['cust_number'].hasError('required') ">  
+                  Customer Number is required  
+                </span>
+                <span *ngIf="userForm.controls['cust_number'].hasError('pattern') ">  
+                  Enter Number, Alphabet is Not allowed 
+                </span>  
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <label>Customer Address</label>
+              <textarea class="form-control" type="text" placeholder="Address" formControlName="cust_address"></textarea>
+              <div *ngIf="userForm.controls['cust_address'].touched && !userForm.controls['cust_address'].valid" class="alert alert-danger">  
+                <span *ngIf="userForm.controls['cust_address'].hasError('required') ">  
+                    Address is required  
+                    </span>  
+                    <span *ngIf="userForm.controls['cust_address'].hasError('minlength') ">  
+                     Min length is 3  
+                    </span>  
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-grid-list cols="2" rowHeight="3:1">
+                <mat-grid-tile>
+                </mat-grid-tile>
+
+                <mat-grid-tile class="border-2px-solid">
+                  <div class='internalMatGrid'>
+                    <mat-grid-list cols="2" rowHeight="3:1">
+                      <mat-grid-tile>
+                        <label>Sub Total:</label>
+                      </mat-grid-tile>
+                      <mat-grid-tile>
+                        <mat-form-field>
+                          <input matInput formControlName="cust_price" placeholder="Rs. 25000" disabled>
+                          <div *ngIf="userForm.controls['cust_price'].touched && !userForm.controls['cust_price'].valid" class="alert alert-danger">  
+                            <span *ngIf="userForm.controls['cust_price'].hasError('pattern') ">  
+                              Enter Number 
+                            </span>  
+                        </div>
+                        </mat-form-field>
+                      </mat-grid-tile>
+
+
+                    </mat-grid-list>
+                    <div class="centralize-button">
+                      <button type="submit" class="btn btn-primary btn-round" [disabled]="!userForm.valid">
+                        Submit & Generate Invoice
+                      </button>
+                    </div>
+
+                  </div>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

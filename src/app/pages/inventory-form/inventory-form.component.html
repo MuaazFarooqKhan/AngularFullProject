@@ -1,0 +1,167 @@
+<!-- Name, address, number, cnic -->
+<div @open class="col-md-12">
+  <div class="pt-2 col-md-12">
+    <div class="row">
+      <h5 class="card-title">Add Inventory</h5>
+      <div class="offset-7">
+        <button routerLink="/admin/view-inventory" class="btn btn-round btn-primary">View Inventory</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <span>Product Information</span>
+      <form class="pt-2" #f [formGroup]="userForm" (ngSubmit)="submit(userForm.value)">
+        <div class="row pt-2 pl-3">
+          <div class="col-md-4 form-group">
+            <label>Brand Name</label>
+            <input type="text" formControlName="brand" class="form-control" placeholder="Brand Name">
+            <div *ngIf="brand.invalid && brand.touched">
+              <div *ngIf="brand.errors.required" class="alert alert-danger">Brand is required</div>
+              <div *ngIf="brand.errors.minlength" class="alert alert-danger">Brand should be minimum 4 characters
+              </div>
+              <div *ngIf="brand.errors.pattern" class="alert alert-danger">Brand should be maximum 255 characters</div>
+            </div>
+          </div>
+          <div class="col-md-4 form-group">
+            <label>Model</label>
+            <input type="text" formControlName="model" class="form-control" placeholder="Model">
+            <div *ngIf="model.invalid && brand.touched">
+              <div *ngIf="model.errors.required" class="alert alert-danger">Model is required</div>
+              <div *ngIf="model.errors.maxlength" class="alert alert-danger">Model should be maximum 255 characters
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 form-group">
+            <label>Vendor</label>
+            <select formControlName="vendor_id" class="form-control">
+              <option disabled selected>Select Vendor</option>
+              <option class="form-control" *ngFor="let vendor of vendors" [value]="vendor.id">{{vendor.name}}
+              </option>
+            </select>
+            <div *ngIf="vendor.invalid && vendor.touched">
+              <div *ngIf="vendor.errors.required" class="alert alert-danger">Vendor is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngFor="let phone of getPhonesFormControls(); let i=index">
+          <div class="pt-4 pl-4">
+            <span (click)="addPhone()"><i class="fas fa-plus add-icon"></i></span>
+          </div>
+          <div class="col-md-3 form-group">
+            <label>Color</label>
+            <input type="text" [formControl]="phone.get('color')" class="form-control" placeholder="Color">
+            <div *ngIf="phone.get('color').invalid && phone.get('color').touched">
+              <div *ngIf="phone.get('color').errors.required" class="alert alert-danger">Color is required</div>
+              <div *ngIf="phone.get('color').errors.maxlength" class="alert alert-danger">Color should be maximum 255 characters
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 form-group">
+            <label>IMEI</label>
+            <input type="text" [formControl]="phone.get('IMEI')" class="form-control" placeholder="IMEI">
+            <div *ngIf="phone.get('IMEI').invalid && phone.get('IMEI').touched">
+              <div *ngIf="phone.get('IMEI').errors.required" class="alert alert-danger">Price is required</div>
+            </div>
+          </div>
+          <div class="col-md-3 form-group">
+            <label>Price</label>
+            <input type="text" [formControl]="phone.get('price')" class="form-control" placeholder="Price">
+            <div *ngIf="phone.get('price').invalid && phone.get('price').touched">
+              <div *ngIf="phone.get('price').errors.required" class="alert alert-danger">Price is required</div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <span (click)="removePhone(i)"><i class="fas fa-trash del-icon"></i></span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-round pull-right" [disabled]="!userForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <mat-grid-tile>
+           
+          </mat-grid-tile> -->
+
+
+  <!-- <div class="form-bg col-lg-8 offset-md-2">
+    
+         <div class="text-center mt-35px">
+                <span>Product Information</span>
+          <div class="example-container">
+          
+                <mat-form-field class="mr-35px width-25p">
+                        <mat-label>Brand</mat-label>
+                        <mat-select>
+                          <mat-option value="Apple">Apple</mat-option>
+                          <mat-option value="Samsung">Samsung</mat-option>
+                          <mat-option value="Huawei">Huawei</mat-option>
+                          <mat-option value="Xiaomi">Xiaomi</mat-option>
+                          <mat-option value="Oppo">Oppo</mat-option>
+                          <mat-option value="OnePlus">One Plus</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="width-25p">
+                            <mat-label>Model</mat-label>
+                            <mat-select>
+                              <mat-option value="X">Xs Max</mat-option>
+                              <mat-option value="A70">A70</mat-option>
+                              <mat-option value="P30 Pro">P30 Pro</mat-option>
+                              <mat-option value="K20 Pro">K20 Pro</mat-option>
+                              <mat-option value="X5">X5</mat-option>
+                              <mat-option value="7 ProT">7 ProT</mat-option>
+    
+                            </mat-select>
+                          </mat-form-field>
+
+                          <mat-form-field class="width-25p mr-35px">
+                                <mat-label>Color / Variant</mat-label>
+                                <mat-select>
+                                  <mat-option value="Fuck Red">Red!</mat-option>
+                                  <mat-option value="Dirty Black">Black</mat-option>
+                                  <mat-option value="Oh yes Mr.Gray">Gray</mat-option>
+                                  <mat-option value="Purple Daddy">Purple</mat-option>
+                                  <mat-option value="Doggy Style Blue">Blue</mat-option>
+                                  <mat-option value="69 Violet">Violet</mat-option>
+                                  <mat-option value="Horny Green">Green</mat-option>
+                                  <mat-option value="Golden Booty">Golden</mat-option>
+                                  <mat-option value="Tit Pink">Pink</mat-option>
+
+        
+                                </mat-select>
+                              </mat-form-field>
+
+
+                            <mat-form-field class="width-25p">
+                                <input matInput placeholder="Price" value="$350">
+                              </mat-form-field>
+
+                              <mat-form-field class="width-25p">
+                                    <mat-label>Vendor</mat-label>
+                                    <mat-select>
+                                      <mat-option value="Vendor1">Sadar Vendor</mat-option>
+                                      <mat-option value="Vendor2">Murree Road Vendor</mat-option>
+                                      <mat-option value="Vendor3">Islamabad Vendor</mat-option>
+                                              
+                                    </mat-select>
+                                  </mat-form-field>
+              <button mat-button class="btn-submit clr-both">Submit</button>
+        
+           
+          </div>
+          </div>
+          
+        </div>   -->

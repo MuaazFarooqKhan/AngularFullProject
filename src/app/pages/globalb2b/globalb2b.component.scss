@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #002366 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #8f8eb9 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #002366 !important;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
+.customModal{
+  width: 200px !important;
+}

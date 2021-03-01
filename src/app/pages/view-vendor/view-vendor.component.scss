@@ -1,0 +1,30 @@
+.fas {
+  cursor: pointer;
+}
+
+th.mat-header-cell {
+  text-align: center !important;
+}
+
+th.mat-cell {
+  text-align: center !important;
+}
+
+tr.mat-row {
+  text-align: center !important;
+}
+
+// ::ng-deep .fa-user-edit.tooltip-inner {
+//     background-color: rgb(97, 198, 245);
+// }
+
+// ::ng-deep .fa-trash.tooltip-inner {
+//     background-color: rgb(204, 44, 44);
+// }
+// ::ng-deep .fa-info-circle.tooltip-inner {
+//     background-color: rgb(97, 198, 245);
+// }
+
+i:hover{
+  cursor: pointer;
+}

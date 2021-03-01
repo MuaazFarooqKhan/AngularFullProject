@@ -1,0 +1,16 @@
+<div style="text-align: center;">
+<h3>Bid on Product</h3>
+<p>Customer Name: Ali Hassan</p>
+<p>Product Name: Samsung A70</p>
+<p>Price: Rs. 45000</p>
+
+<mat-form-field>
+  <input placeholder="Enter amount here" matInput>
+  </mat-form-field>
+
+  <div mat-dialog-actions style="text-align: center; display: block;">
+  
+    <button class="mr-1 btn btn-primary btn-round" [mat-dialog-close]>Bid</button>
+    <button class="ml-1 btn btn-danger btn-round" (click)="onNoClick()">Close</button>
+  </div>
+</div>

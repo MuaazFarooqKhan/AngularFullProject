@@ -1,0 +1,68 @@
+<div class="pt-4">
+    <h5 class="card-title">Report</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <!-- <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field> -->
+      </div>
+      <!-- <div class="col-md-7">
+        <button [routerLink]="['/admin/add-vendor']" class="btn btn-primary btn-round pull-right">Add
+          Vendor</button>
+      </div> -->
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-md-12">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date|date:"dd/MM/yyyy"}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cust_name">
+        <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.cust_name}} </td>
+      </ng-container>
+
+
+      <!-- Sales Column -->
+      <ng-container matColumnDef="sales">
+        <th mat-header-cell *matHeaderCellDef> Sales </th>
+        <td mat-cell *matCellDef="let element"> {{element.sales}} </td>
+      </ng-container>
+<!-- 
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+      </ng-container> -->
+
+      <!-- Symbol Column -->
+      <!-- <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <i class="fas fa-user-edit text-success" placement="bottom" (click)="open(mymodal, element._id)"
+            ngbTooltip="Edit Vendor"></i>
+          <i class="fas fa-trash text-danger" (click)="delete(element._id)" placement="bottom"
+            ngbTooltip="Delete Vendor"></i>
+          <i class="fas fa-info-circle p-1 text-primary" (click)="ope(mymoda, element._id)" placement="bottom"
+            ngbTooltip="Vendor Details"></i>
+        </td>
+      </ng-container> -->
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

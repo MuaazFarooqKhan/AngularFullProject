@@ -1,0 +1,112 @@
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color:#002366 !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #8F8EB9 !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #002366 !important;
+  }
+
+
+.header-color {
+    background-color: #f4f3ef;
+}
+
+i {
+    font-family:'FontAwesome'!important;
+    }
+
+.del-icon {
+    font-size: 19px;
+    margin-left: 10px;
+}
+.add-icon {
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.width-100p {
+    width: 100%;
+    background-color: #002366;
+}
+.color-white {
+    color: white;
+    margin-bottom: 0 !important;
+}
+
+.customer-detail {
+  
+    text-align: left;
+    width: 100%;
+    font-size: 13px;
+    margin-left: 20px;
+}
+mat-grid-tile.customer-tile.mat-grid-tile, mat-grid-tile.invoice-tile {
+   border: 1px solid #cccccc
+}
+
+table.customer-detail > tr {
+    height: 40px
+}
+
+.customer-detail > tr > td:first-of-type {
+    width:30%;
+    font-weight: bold;
+}
+
+table.invoice-detail {
+    margin-left: auto;
+    width: 100%;
+    text-align: right;
+    margin-right: 20px
+}
+.invoice-detail > tr > td:first-of-type {
+    width: 70%;
+    font-weight: bold;
+}
+
+.border-set {
+    border: 1px solid #cccccc;
+}
+
+table.items-table {
+    width: 100%;
+    // text-align: center;
+    background-color: white !important;
+}
+table.items-table > thead > tr {
+    height: 50px;
+    font-weight: bold;
+    // background-color: #aaaaaa;
+}
+table.items-table > tbody > tr {
+    height: 35px;
+    background-color: #eeeeee;
+}
+table.items-table > tbody > tr:hover {
+    background-color: #999999
+}
+
+.total-amount {
+    width: 75%;
+    text-align: right;
+    font-weight: bold;
+}
+hr {
+    border-width: 2px;
+}
+.btn-centralize {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+.btn-centralize > button {
+   margin: 20px;
+}

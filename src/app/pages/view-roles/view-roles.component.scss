@@ -1,0 +1,87 @@
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #002366 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #8f8eb9 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #002366 !important;
+}
+
+.switch-ml {
+  margin-left: 76%;
+}
+
+mat-card {
+  width: 100%;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+mat-grid-tile p {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 16px;
+}
+
+.btn-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.right-set {
+  display: block;
+  margin-left: auto;
+  width: 14%;
+  height: 40px;
+}
+
+.fas {
+  cursor: pointer;
+}
+
+th.mat-header-cell {
+  text-align: center !important;
+}
+
+th.mat-cell {
+  text-align: center !important;
+  width: wrap-content;
+}
+
+tr.mat-row {
+  text-align: center !important;
+}    
+
+.mat-table{
+  width:70vw;
+}
+
+.mat-column-permissions {
+  flex: 1 0 500px;
+  
+}
+
+// .customModal .modal-dialog {
+//   max-width: 900px;
+// }
+
+// .mat-column-position{
+//     width:100px;
+// }
+
+// .mat-column-name{
+//     width:500px;
+// }
+
+// .mat-column-actions{
+//     flex: 100px;
+// }
+

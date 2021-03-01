@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+
+.mini-sidebar {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTXz3vZSJcxaiZC9q-cqEvRByPXHE0P11FAk9XRHzXhPp0de0DI");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  background-attachment: fixed;
+  font-family: "Numans", sans-serif;
+  max-width: 100%;
+}
+
+.sidebar[data-active-color="danger"] .nav li.active > a,
+.sidebar[data-active-color="danger"] .nav li.active > a i,
+.sidebar[data-active-color="danger"] .nav li.active > a[data-toggle="collapse"],
+.sidebar[data-active-color="danger"] .nav li.active > a[data-toggle="collapse"] i,
+.sidebar[data-active-color="danger"]
+  .nav
+  li.active
+  > a[data-toggle="collapse"]
+  ~ div
+  > ul
+  > li.active
+  .sidebar-mini-icon,
+.sidebar[data-active-color="danger"] .nav li.active > a[data-toggle="collapse"] ~ div > ul > li.active > a,
+.off-canvas-sidebar[data-active-color="danger"] .nav li.active > a,
+.off-canvas-sidebar[data-active-color="danger"] .nav li.active > a i,
+.off-canvas-sidebar[data-active-color="danger"] .nav li.active > a[data-toggle="collapse"],
+.off-canvas-sidebar[data-active-color="danger"] .nav li.active > a[data-toggle="collapse"] i,
+.off-canvas-sidebar[data-active-color="danger"]
+  .nav
+  li.active
+  > a[data-toggle="collapse"]
+  ~ div
+  > ul
+  > li.active
+  .sidebar-mini-icon,
+.off-canvas-sidebar[data-active-color="danger"] .nav li.active > a[data-toggle="collapse"] ~ div > ul > li.active > a {
+  color: #8a2be2 !important;
+}
+
+body {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+.btn.btn-primary.btn-round {
+  border-width: 1px !important;
+  border-radius: 30px !important;
+  padding-right: 23px !important;
+  padding-left: 23px !important;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.center-element {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}

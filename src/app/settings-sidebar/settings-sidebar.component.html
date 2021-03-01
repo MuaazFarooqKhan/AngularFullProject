@@ -1,0 +1,55 @@
+<div class="sidebar-wrapper">
+  <div class="logo" style="height: auto !important; overflow: auto !important;">
+    <a [routerLink]="['/dashboard']" class="simple-text logo-mini">
+      <div class="logo-image-small">
+        <img src="../../assets/img/Mtronics-logo1.png">
+      </div>
+    </a>
+    <a [routerLink]="['/dashboard']" class="simple-text logo-normal mt-2">
+      M-tronix
+    </a>
+  </div>
+  <ul class="nav">
+    <li routerLinkActive="active" [ngSwitch]="menuItem.title" *ngFor="let menuItem of menuItems" class="noselect">
+      <div *ngIf="menuItem.title==='Employee'; then empDropdown"></div>
+      <div *ngIf="menuItem.title==='Roles & Permissions'; then rnpDropdown"></div>
+      <div *ngIf="menuItem.title!=='Roles & Permissions' && menuItem.title!=='Employee' ; then simple"></div>
+      
+      <ng-template #empDropdown>
+        <a type="button" (click)="toggleEmp()">
+          <i class="nc-icon {{menuItem.icon}}"></i>
+          <p>{{menuItem.title}}</p>
+        </a>
+        <div *ngIf="showEmp" class="offset-1">
+          <li @openClose routerLinkActive="active" class="noselect" *ngFor="let dropdown of menuItem.dropdown">
+            <a [routerLink]="[dropdown.path]" style="background-color: rgb(243, 241, 241);">
+              <i class="{{dropdown.icon}}"></i>
+              <p>{{dropdown.title}}</p>
+            </a>
+          </li>
+        </div>
+      </ng-template>
+      <ng-template #rnpDropdown>
+        <a type="button" (click)="toggleRnP()">
+          <i class="nc-icon {{menuItem.icon}}"></i>
+          <p>{{menuItem.title}}</p>
+        </a>
+        <div *ngIf="showRnP" class="offset-1">
+          <li @openClose routerLinkActive="active" class="noselect" *ngFor="let dropdown of menuItem.dropdown">
+            <a [routerLink]="[dropdown.path]" style="background-color: rgb(243, 241, 241);">
+              <i class="{{dropdown.icon}}"></i>
+              <p>{{dropdown.title}}</p>
+            </a>
+          </li>
+        </div>
+      </ng-template>
+      <ng-template #simple>
+        <a [routerLink]="[menuItem.path]">
+          <i class="nc-icon {{menuItem.icon}}"></i>
+          <p>{{menuItem.title}}</p>
+        </a>
+      </ng-template>
+
+    </li>
+  </ul>
+</div>

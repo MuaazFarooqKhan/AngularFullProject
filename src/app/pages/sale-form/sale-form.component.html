@@ -1,0 +1,85 @@
+<div class="form-bg col-lg-12">
+  <div class="row">
+    <h3 class="center-element">Add Inventory</h3>
+  </div>
+    
+    <div class="text-center mt-20px">
+          <span>Product Information</span>
+    <div class="example-container">
+        <form [formGroup]="userForm">
+      <mat-grid-list cols="3" rowHeight="4:1" class="header-color">
+     
+        <mat-grid-tile class="tile-center">
+          <mat-form-field class="mr-35px">
+            <mat-label>Brand</mat-label>
+            <mat-select>
+              <mat-option value="Apple">Apple</mat-option>
+              <mat-option value="Samsung">Samsung</mat-option>
+              <mat-option value="Huawei">Huawei</mat-option>
+              <mat-option value="Xiaomi">Xiaomi</mat-option>
+              <mat-option value="Oppo">Oppo</mat-option>
+              <mat-option value="OnePlus">One Plus</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile class="tile-center">
+          <mat-form-field>
+            <mat-label>Model</mat-label>
+            <mat-select>
+              <mat-option value="X">Xs Max</mat-option>
+              <mat-option value="A70">A70</mat-option>
+              <mat-option value="P30 Pro">P30 Pro</mat-option>
+              <mat-option value="K20 Pro">K20 Pro</mat-option>
+              <mat-option value="X5">X5</mat-option>
+              <mat-option value="7 ProT">7 ProT</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+
+        </mat-grid-tile>
+      
+        <mat-grid-tile class="tile-center">
+          <mat-form-field>
+            <input matInput placeholder="Vendor" value="Syed Arcade" disabled>
+          </mat-form-field>
+        </mat-grid-tile>
+    
+      </mat-grid-list> 
+    
+      <mat-grid-list cols="3" rowHeight="4:1" *ngFor="let phone of getPhonesFormControls(); let i=index">
+    <mat-grid-tile>
+        <span (click)="addPhone()"><i class="fas fa-plus add-icon pull-left"></i></span>
+        <mat-form-field>
+            <input matInput [formControl]="phone" placeholder="Color">
+          </mat-form-field> 
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput [formControl]="imei" placeholder="IMEI">
+          </mat-form-field> 
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput [formControl]="price" placeholder="Price" (keydown.tab)="addPhone()">
+            <span matPrefix>Rs.&nbsp;</span>
+          </mat-form-field> 
+          <span (click)="removePhone(i)"><i class="fas fa-trash del-icon"></i></span>
+    </mat-grid-tile>
+    
+      </mat-grid-list>
+      
+    
+      <button mat-button class="btn-submit pull-right">Submit</button>
+      </form>
+    </div>
+    </div>
+    
+  </div>  
+
+
+
+          
+         
+
+       

@@ -1,0 +1,47 @@
+.wrapper {
+    width: 99%;
+    background: white;
+    height: 500px;
+    padding: 5%;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  // .mat-form-field-label{
+  //   color: black !important;
+  // }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color:#002366 !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #8F8EB9 !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #002366 !important;
+  }
+
+  .centralize-row {
+    margin: 0 auto;
+  }
+  .card-height-set {
+    margin: 90px 0 100px 0;
+  }
+  .centralize {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .mt-5rem {
+      margin-top: 1.5rem;
+  }

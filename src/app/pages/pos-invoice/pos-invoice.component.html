@@ -1,0 +1,110 @@
+<div class="form-bg col-lg-12">
+        <kendo-pdf-export #pdf paperSize="Letter" [scale]="0.75" [landscape]="true" margin="1cm" id="print-section">
+      <div class="row">
+        <header class="width-100p">
+            <h3 class="center-element color-white">Invoice</h3>
+        </header>
+      </div>
+      <div class="invoice-body">
+      <mat-grid-list cols="2" rowHeight="4:1">
+        <mat-grid-tile class="customer-tile">
+         <table class="customer-detail">
+           <tr>
+             <td>Customer Name:</td>
+             <td>John Doe</td>
+           </tr>
+           <tr>
+              <td>Customer CNIC:</td>
+              <td>12345-1234567-1</td>
+            </tr>
+            <tr>
+                <td>Customer Number:</td>
+                <td>+92 312 1234567</td>
+              </tr>
+         </table>
+  
+        </mat-grid-tile>
+        <mat-grid-tile class="invoice-tile">
+          <table class="invoice-detail">
+            <tr>
+              <td>Invoice #</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>Date:</td>
+              <td>1-11-2019</td>
+            </tr>
+          </table>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="col-lg-12 border-set">
+      
+          <table class="items-table">
+            <thead>
+              <tr>
+                <td>Item</td>
+                <td>Description</td>
+                <td>Cost</td>
+                <td>Qty</td>
+                <td>Total</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Samsung A70</td>
+                <td>Black - 128GB</td>
+                <td>Rs. 56000</td>
+                <td>1</td>
+                <td>56000</td>
+              </tr>
+              <tr>
+                <td>Xiaomi Note 8 Pro</td>
+                <td>Forest Green - 128 GB</td>
+                <td>Rs. 43000</td>
+                <td>1</td>
+                <td>43000</td>
+              </tr>
+            </tbody>
+          </table>
+        <hr>
+          <mat-grid-list cols="2" rowHeight="4:1">
+           
+            <mat-grid-tile>
+  
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <table class="total-amount">
+                <tr>
+                  <td>Sub-Total</td>
+                  <td>99000</td>
+                </tr>
+                <tr>
+                  <td>Discount</td>
+                  <td>5%</td>
+                </tr>
+                <tr>
+                  <td>Grand Total</td>
+                  <td>Rs. 105930</td>
+                </tr>
+              </table>
+            </mat-grid-tile>
+          </mat-grid-list>
+         
+        </div>
+      </div>
+    </kendo-pdf-export>
+        <div class="row">
+          <div class="btn-centralize">
+              <button mat-button color="primary" class="btn-submit" kendo-button (click)="pdf.saveAs('invoice.pdf')">
+                  Save As PDF
+                </button>
+                <button mat-button color="primary" [useExistingCss]="true" class="btn-submit" printSectionId="print-section" ngxPrint>Print</button> 
+          </div>  
+          
+          </div>
+       
+        </div>
+  
+       
+  
+  

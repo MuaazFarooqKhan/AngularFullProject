@@ -1,0 +1,88 @@
+
+<div @open class="col-md-12">
+  <div class="pt-4">
+    <h5 class="card-title">Sales List</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+      <div class="col-md-8">
+        <button [routerLink]="['/admin/pos']" class="btn btn-primary btn-round pull-right">Add
+          Sale</button>
+      </div>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Mobile Model </th>
+        <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Mobile Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="bid">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button class="btn btn-primary btn-round btn-sm" (click)="open(detailsmodal,element._id)">View</button></td>
+           </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="modal-lg">
+      <ng-template class="modal-lg" #detailsmodal let-modal>
+        <div class="modal-header">
+          <!-- <h4 class="modal-title" id="modal-basic-title">Details for {{studentData.name}}</h4> -->
+          <h4 class="modal-title" id="modal-basic-title">Employee Details</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body m-3">
+          <div>
+            <p>Customer Name: {{detailsData.cust_name}}</p>
+            <p>Customer CNIC: {{detailsData.cust_cnic}}</p>
+            <p>Customer Phone: {{detailsData.cust_number}}</p>
+            <p>Customer Address: {{detailsData.cust_address}}</p>
+            <p>Customer Price: {{detailsData.cust_price}}</p>
+            <p>Phone Brand: {{detailsData.brand}}</p>
+            <p>Phone Model: {{detailsData.model}}</p>
+            <p>Phone Color: {{detailsData.color}}</p>
+            <p>Phone IMEI: {{detailsData.IMEI}}</p>
+            <p>Phone Price: {{detailsData.price}}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-warn" (click)="modal.close('Save click')">Close</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+

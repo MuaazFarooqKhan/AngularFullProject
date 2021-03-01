@@ -1,0 +1,156 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <title>Material Pro Admin Template - Bootstrap 4 Admin Template</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader" style="display: none;">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper">
+        <div class="login-register" style="margin-top: -4%">        
+            <div class="login-box card">
+            <div class="card-body">
+                <form [formGroup]="signupForm" (ngSubmit)="PostData(signupForm)">
+                    <h3 class="p-2 rounded-title mb-3">Sign Up</h3>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="f" formControlName="name"  type="text" required="" placeholder="Name">
+                        </div>
+                        <div *ngIf="signupForm.controls['name'].touched && !signupForm.controls['name'].valid" class="alert alert-danger">  
+                            <span *ngIf="signupForm.controls['name'].hasError('required') ">  
+                                First name is required  
+                                </span>  
+                                <span *ngIf="signupForm.controls['name'].hasError('minlength') ">  
+                                 Min length is 3  
+                                </span>  
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="f" formControlName="email"  placeholder="Email" type="email">
+                        </div>
+                        <div *ngIf="signupForm.controls['email'].touched && !signupForm.controls['email'].valid" class="alert alert-danger">  
+                            <span *ngIf="signupForm.controls['email'].hasError('required') ">  
+                                Email is required  
+                            </span>  
+                            <span *ngIf="signupForm.controls['email'].hasError('email') ">  
+                                Email should be in standard form  
+                            </span>  
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="f" formControlName="address"  placeholder="Address">
+                        </div>
+                        <div *ngIf="signupForm.controls['address'].touched && !signupForm.controls['address'].valid" class="alert alert-danger">  
+                            <span *ngIf="signupForm.controls['address'].hasError('required') ">  
+                                Address is required  
+                                </span>  
+                                <span *ngIf="signupForm.controls['address'].hasError('minlength') ">  
+                                 Min length is 5  
+                                </span>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="f" formControlName="phone"  type="text" required="" placeholder="phone">
+                        </div>
+                        <div *ngIf="signupForm.controls['phone'].touched && !signupForm.controls['phone'].valid" class="alert alert-danger">  
+                            <span *ngIf="signupForm.controls['phone'].hasError('required') ">  
+                                Phone Number is required  
+                                </span>  
+                                <span *ngIf="signupForm.controls['phone'].hasError('minlength') ">  
+                                 Min length is 11
+                                </span>
+                                <span *ngIf="signupForm.controls['phone'].hasError('maxlength') ">  
+                                Max length is 11 
+                                </span>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="f" formControlName="password"  type="password" required="" placeholder="Password">
+                        </div>
+                        <div *ngIf="signupForm.controls['password'].touched && !signupForm.controls['password'].valid" class="alert alert-danger">  
+                            <span *ngIf="signupForm.controls['password'].hasError('required') ">  
+                                Password is required  
+                                </span>  
+                                <span *ngIf="signupForm.controls['password'].hasError('minlength') ">  
+                                 Min length is 5  
+                                </span>  
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="">
+                            <div class="checkbox checkbox-success pt-0">
+                                <input id="checkbox-signup" type="checkbox" formControlName="check">
+                                <label for="checkbox-signup"> I agree to all <a href="#">Terms</a></label>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group text-center mt-3">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" [disabled]="!signupForm.valid" type="submit">Sign Up</button>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0">
+                        <div class="col-sm-12 text-center">
+                            Already have an account? <a [routerLink]="['/']" class="text-info ml-1"><b>Sign In</b></a>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+          </div>
+        </div>
+        
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/popper/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+
+</body></html>

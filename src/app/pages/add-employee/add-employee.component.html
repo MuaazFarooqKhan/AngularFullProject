@@ -1,0 +1,91 @@
+<!-- Name, address, number, cnic -->
+<div @open class="col-md-12">
+  <div class="pt-2 col-md-12">
+    <div class="row">
+      <h5 class="card-title">Add Employee</h5>
+      <div class="offset-7">
+        <button routerLink="/settings/view-employee" class="btn btn-primary btn-round">
+          View Employees
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <form #f [formGroup]="form" (ngSubmit)="add(form.value)">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Employee Name</label>
+              <input type="text" class="form-control" formControlName="employee_name" placeholder="Name">
+              <div *ngIf="name.invalid && name.touched">
+                <div *ngIf="name.errors.required" class="alert alert-danger">Name is required</div>
+                <div *ngIf="name.errors.minlength" class="alert alert-danger">Name should be minimum 3 characters</div>
+                <div *ngIf="name.errors.pattern" class="alert alert-danger">Name should only have alphabets and spaces</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Employee CNIC</label>
+              <input type="text" class="form-control" formControlName="employee_cnic" placeholder="CNIC">
+              <div *ngIf="cnic.invalid && cnic.touched">
+                <div *ngIf="cnic.errors.required" class="alert alert-danger">CNIC is required</div>
+                <div *ngIf="cnic.errors.minlength" class="alert alert-danger">CNIC should be exactly 13 characters</div>
+                <div *ngIf="cnic.errors.maxlength" class="alert alert-danger">CNIC should be exactly 13 characters</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Employee Phone Number</label>
+              <input type="text" class="form-control" formControlName="employee_phone" placeholder="Phone Number">
+              <div *ngIf="phone.invalid && phone.touched">
+                <div *ngIf="phone.errors.required" class="alert alert-danger">Phone is required</div>
+                <div *ngIf="phone.errors.pattern" class="alert alert-danger">Phone should be of the form 03xxxxxxxxx</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Employee Email</label>
+              <input type="text" class="form-control" formControlName="employee_email" placeholder="Email">
+              <div *ngIf="email.invalid && email.touched">
+                <div *ngIf="email.errors.required" class="alert alert-danger">Email is required</div>
+                <div *ngIf="email.errors.email" class="alert alert-danger">Email should be in standard form</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Employee Password</label>
+              <input type="password" class="form-control" formControlName="employee_password" placeholder="Password">
+              <div *ngIf="password.invalid && password.touched">
+                <div *ngIf="password.errors.required" class="alert alert-danger">Password is required</div>
+                <div *ngIf="password.errors.minlength" class="alert alert-danger">Password should be minimum 5 characters</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Employee Role</label>
+              <select class="form-control" formControlName="Roles">
+                <option disabled selected>Select Role</option>
+                <option class="form-control" *ngFor="let role of roles" [value]="role.id">{{role.name}}
+                </option>
+              </select>
+              <div *ngIf="Roles.invalid && Roles.touched">
+                <div *ngIf="Roles.errors.required" class="alert alert-danger">Role is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-2">
+          <div class="offset-10">
+            <button type="submit" class="btn btn-primary btn-round" [disabled]="!form.valid">Add Employee</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
